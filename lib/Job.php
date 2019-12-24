@@ -51,4 +51,16 @@ class Job{
         return $row;
 
     }
+
+    //Get job
+
+    public function getJob($id){
+        $this->db->query("SELECT * FROM jobs where id = :id"); //:category_id is a placeholder whose value has to be binded
+        $this->db->bind(':id', $id);
+
+        //assign row
+        $row = $this->db->single();
+
+        return $row;
+    }
 }
